@@ -367,6 +367,144 @@
       font-weight: 780;
       cursor: pointer;
     }
+    .auth-dialog {
+      width: min(560px, calc(100% - 32px));
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+      border-radius: 26px;
+      box-shadow: 0 28px 85px rgba(0, 28, 20, .34);
+    }
+    .auth-dialog::backdrop { background: rgba(4, 31, 22, .60); }
+    .auth-dialog-content { padding: 34px; }
+    .auth-dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+    .auth-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .auth-brand img {
+      width: 48px;
+      height: 48px;
+      border-radius: 11px;
+      box-shadow: 0 5px 14px rgba(6, 44, 32, .16);
+    }
+    .auth-brand span {
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: -.04em;
+    }
+    .auth-close {
+      min-width: 74px;
+      min-height: 44px;
+      padding: 0 16px;
+      color: var(--ink);
+      background: #f1f4f0;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .auth-dialog h2 {
+      margin: 0 0 10px;
+      font-size: 34px;
+      line-height: 1.2;
+      letter-spacing: -.035em;
+    }
+    .auth-intro {
+      margin: 0 0 26px;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.5;
+    }
+    .auth-field { margin-bottom: 18px; }
+    .auth-label {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.35;
+      font-weight: 820;
+    }
+    .auth-input,
+    .trial-code-row {
+      width: 100%;
+      min-height: 56px;
+      color: #102b22;
+      background: #fff;
+      border: 1px solid #afbbb3;
+      border-radius: 10px;
+      font-size: 17px;
+    }
+    .auth-input { padding: 0 18px; }
+    .auth-input::placeholder { color: #75837c; }
+    .auth-input:focus,
+    .trial-code-row:focus-within {
+      outline: 3px solid rgba(61, 212, 90, .28);
+      border-color: var(--green-700);
+    }
+    .trial-code-row {
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+    }
+    .trial-code-row .auth-input {
+      min-width: 0;
+      min-height: 54px;
+      flex: 1;
+      border: 0;
+      border-radius: 0;
+      outline: 0;
+    }
+    .trial-code-toggle {
+      min-width: 76px;
+      padding: 0 14px;
+      color: var(--green-800);
+      background: #f4f7f3;
+      border-left: 1px solid #cbd3cd;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .auth-hint {
+      margin: -10px 0 22px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .auth-error {
+      display: none;
+      margin: 0 0 16px;
+      padding: 13px 15px;
+      color: #8e2f29;
+      background: #fff1ef;
+      border: 1px solid #efb8b3;
+      border-radius: 9px;
+      font-size: 15px;
+      line-height: 1.45;
+      font-weight: 720;
+    }
+    .auth-error.is-visible { display: block; }
+    .auth-submit {
+      width: 100%;
+      min-height: 60px;
+      padding: 0 24px;
+      color: #fff;
+      background: var(--green-800);
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 820;
+      cursor: pointer;
+      transition: background-color .18s ease, transform .18s ease;
+    }
+    .auth-submit:hover { background: #06482f; transform: translateY(-1px); }
+    .auth-submit:disabled { opacity: .66; cursor: wait; transform: none; }
 
     @media (max-width: 979px) {
       .site-header { padding: 0 24px; }
@@ -397,6 +535,12 @@
       .hero h1 { font-size: 45px; line-height: 1.18; }
       .statement h2 { font-size: 29px; }
       .choices { grid-template-columns: 1fr; }
+      .auth-dialog-content { padding: 28px 22px 24px; }
+      .auth-dialog-header { margin-bottom: 24px; }
+      .auth-brand img { width: 50px; height: 50px; }
+      .auth-brand span { font-size: 30px; }
+      .auth-dialog h2 { font-size: 34px; }
+      .auth-intro { font-size: 17px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -421,8 +565,8 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a class="nav-link desktop-nav" href="#how-it-works">How it works</a>
         <button class="nav-button desktop-nav" type="button" data-open-dialog="families-dialog">For families</button>
-        <a class="nav-link" href="https://rehyn.onrender.com/sign-in?auth=signin" data-app-link>Sign in</a>
-        <button class="header-cta" type="button" data-open-dialog="trial-dialog">Start free</button>
+        <button class="nav-button" type="button" data-open-dialog="signin-dialog">Sign in</button>
+        <button class="header-cta" type="button" data-open-dialog="signin-dialog">Start free</button>
       </nav>
     </div>
   </header>
@@ -495,14 +639,39 @@
     </div>
   </dialog>
 
-  <dialog id="trial-dialog" aria-labelledby="trial-title">
-    <div class="dialog-content">
-      <button class="dialog-close" type="button" data-close-dialog>Close</button>
-      <h2 id="trial-title">Start with Rehyn</h2>
-      <p>Rehyn is currently available through the trial app. When you are ready to continue, sign in to the secure Rehyn app.</p>
-      <div class="dialog-actions">
-        <a class="header-cta" href="https://rehyn.onrender.com/sign-in?auth=start" data-app-link>Sign in to Rehyn</a>
+  <dialog class="auth-dialog" id="signin-dialog" aria-labelledby="signin-title">
+    <div class="auth-dialog-content">
+      <div class="auth-dialog-header">
+        <div class="auth-brand" aria-label="Rehyn">
+          <img src="logo.svg" alt="" />
+          <span>Rehyn</span>
+        </div>
+        <button class="auth-close" type="button" data-close-dialog>Close</button>
       </div>
+
+      <h2 id="signin-title">Sign in to Rehyn</h2>
+      <p class="auth-intro">Enter your details and trial code to continue.</p>
+
+      <form id="signin-form" novalidate>
+        <div class="auth-field">
+          <label class="auth-label" for="signin-name">Your name</label>
+          <input class="auth-input" id="signin-name" name="name" type="text" placeholder="Name" autocomplete="name" required />
+        </div>
+        <div class="auth-field">
+          <label class="auth-label" for="signin-email">Email</label>
+          <input class="auth-input" id="signin-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" required />
+        </div>
+        <div class="auth-field">
+          <label class="auth-label" for="signin-trial-code">Trial code</label>
+          <div class="trial-code-row">
+            <input class="auth-input" id="signin-trial-code" name="trialCode" type="password" placeholder="Enter your trial code" autocomplete="off" required />
+            <button class="trial-code-toggle" id="trial-code-toggle" type="button" aria-controls="signin-trial-code" aria-pressed="false">Show</button>
+          </div>
+        </div>
+        <p class="auth-hint">Trial access is required to use Rehyn.</p>
+        <p class="auth-error" id="signin-error" role="alert" aria-live="polite"></p>
+        <button class="auth-submit" id="signin-submit" type="submit">Continue to Rehyn</button>
+      </form>
     </div>
   </dialog>
 
@@ -548,6 +717,64 @@
         if (event.target === dialog) dialog.close();
       });
     });
+
+    const signInDialog = document.getElementById("signin-dialog");
+    const signInForm = document.getElementById("signin-form");
+    const signInError = document.getElementById("signin-error");
+    const signInSubmit = document.getElementById("signin-submit");
+    const trialCodeInput = document.getElementById("signin-trial-code");
+    const trialCodeToggle = document.getElementById("trial-code-toggle");
+
+    function showSignInError(message) {
+      signInError.textContent = message;
+      signInError.classList.toggle("is-visible", Boolean(message));
+    }
+
+    trialCodeToggle.addEventListener("click", () => {
+      const shouldShow = trialCodeInput.type === "password";
+      trialCodeInput.type = shouldShow ? "text" : "password";
+      trialCodeToggle.textContent = shouldShow ? "Hide" : "Show";
+      trialCodeToggle.setAttribute("aria-pressed", String(shouldShow));
+      trialCodeInput.focus();
+    });
+
+    signInForm.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const name = signInForm.elements.name.value.trim();
+      const email = signInForm.elements.email.value.trim();
+      const trialCode = signInForm.elements.trialCode.value.trim();
+
+      showSignInError("");
+      if (!name || !email || !trialCode) {
+        showSignInError("Enter your name, email, and trial code to continue.");
+        return;
+      }
+      if (!/^\S+@\S+\.\S+$/.test(email)) {
+        showSignInError("Enter a valid email address.");
+        return;
+      }
+
+      signInSubmit.disabled = true;
+      signInSubmit.textContent = "Signing you in…";
+      try {
+        const response = await fetch("https://rehyn.onrender.com/api/users/login-handoff", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, name, role: "patient", trial_code: trialCode }),
+        });
+        const body = await response.json().catch(() => null);
+        if (!response.ok) throw new Error(body?.detail || "Sign-in failed. Try again.");
+        if (!body?.handoff_token) throw new Error("We could not open Rehyn. Please try again.");
+        signInSubmit.textContent = "Opening Rehyn…";
+        window.location.assign(`https://rehyn.onrender.com/sign-in?handoff=${encodeURIComponent(body.handoff_token)}`);
+      } catch (error) {
+        showSignInError(error instanceof Error ? error.message : "Sign-in failed. Try again.");
+        signInSubmit.disabled = false;
+        signInSubmit.textContent = "Continue to Rehyn";
+      }
+    });
+
+    if (new URLSearchParams(window.location.search).get("signin") === "1") signInDialog.showModal();
 
     function drawProgressChart() {
       const canvas = document.getElementById("progress-chart");
