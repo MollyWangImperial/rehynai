@@ -1,15 +1,611 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=https://rehyn.onrender.com/">
-  <title>Rehyn</title>
-  <script>
-    window.location.replace("https://rehyn.onrender.com/");
-  </script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#003e35" />
+  <meta name="description" content="Rehyn helps stroke survivors understand their movement, follow a personal rehabilitation plan, and see progress over time." />
+  <link rel="canonical" href="https://rehyn.com/" />
+  <title>Rehyn — Recovery at home</title>
+
+  <style>
+    :root {
+      --green-950: #042f24;
+      --green-900: #003e35;
+      --green-800: #07563a;
+      --green-700: #176b45;
+      --green-500: #3dd45a;
+      --ink: #063c2c;
+      --muted: #45545e;
+      --warm-white: #fcfaf7;
+      --line: #d8ded8;
+      --soft-green: #e8f0e9;
+      --page-width: 1400px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--warm-white);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, a { font: inherit; }
+    a { color: inherit; }
+    button { border: 0; }
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 10px;
+      left: 10px;
+      padding: 10px 14px;
+      color: #fff;
+      background: var(--green-800);
+      border-radius: 8px;
+      transform: translateY(-150%);
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    .site-header {
+      min-height: 86px;
+      padding: 0 68px;
+      display: flex;
+      align-items: center;
+      background: var(--warm-white);
+    }
+    .header-inner {
+      width: 100%;
+      max-width: var(--page-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    .brand img {
+      width: 56px;
+      height: 56px;
+      border-radius: 11px;
+      box-shadow: 0 5px 14px rgba(6, 44, 32, .16);
+    }
+    .brand-name {
+      font-size: 40px;
+      line-height: 1;
+      font-weight: 850;
+      letter-spacing: -.04em;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 26px;
+    }
+    .nav-link,
+    .nav-button {
+      min-height: 48px;
+      padding: 0 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #071e17;
+      background: transparent;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+    .nav-link:hover,
+    .nav-button:hover { color: var(--green-700); }
+    .header-cta {
+      min-width: 160px;
+      min-height: 58px;
+      padding: 0 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: var(--green-800);
+      border-radius: 9px;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .18s ease, background-color .18s ease;
+    }
+    .header-cta:hover { background: #06482f; transform: translateY(-1px); }
+    :focus-visible { outline: 3px solid #70e789; outline-offset: 3px; }
+
+    .hero {
+      position: relative;
+      min-height: 510px;
+      display: grid;
+      align-items: center;
+      overflow: hidden;
+      isolation: isolate;
+      background: var(--green-900);
+    }
+    .pulse-layer {
+      position: absolute;
+      z-index: -1;
+      inset: -8%;
+      width: 116%;
+      height: 116%;
+      object-fit: cover;
+      pointer-events: none;
+      will-change: transform;
+      transform: translate3d(0, 0, 0) scale(1.04);
+    }
+    .pulse-layer-a { opacity: .94; animation: orbit-a 8.4s linear infinite; }
+    .pulse-layer-b {
+      opacity: .25;
+      transform: translate3d(0, 0, 0) scaleX(-1) scale(1.08);
+      animation: orbit-b 10.2s linear infinite -2.1s;
+    }
+    @keyframes orbit-a {
+      0%   { transform: translate3d(-1.8%, -.6%, 0) rotate(-1deg) scale(1.04); }
+      40%  { transform: translate3d(.2%, -1.1%, 0) rotate(.2deg) scale(1.06); }
+      44%  { transform: translate3d(2.7%, -.3%, 0) rotate(1.1deg) scale(1.095); }
+      48%  { transform: translate3d(1.3%, 2.1%, 0) rotate(1.8deg) scale(1.12); }
+      52%  { transform: translate3d(-2.5%, 1.1%, 0) rotate(-.4deg) scale(1.10); }
+      56%  { transform: translate3d(.2%, -1.1%, 0) rotate(.2deg) scale(1.06); }
+      100% { transform: translate3d(-1.8%, -.6%, 0) rotate(-1deg) scale(1.04); }
+    }
+    @keyframes orbit-b {
+      0%   { transform: translate3d(2%, .8%, 0) rotate(1.2deg) scaleX(-1) scale(1.08); }
+      42%  { transform: translate3d(-.1%, 1.2%, 0) rotate(-.2deg) scaleX(-1) scale(1.06); }
+      46%  { transform: translate3d(-2.8%, .1%, 0) rotate(-1.3deg) scaleX(-1) scale(1.10); }
+      50%  { transform: translate3d(-1%, -2.2%, 0) rotate(-1.9deg) scaleX(-1) scale(1.13); }
+      54%  { transform: translate3d(2.6%, -1%, 0) rotate(.5deg) scaleX(-1) scale(1.105); }
+      58%  { transform: translate3d(-.1%, 1.2%, 0) rotate(-.2deg) scaleX(-1) scale(1.06); }
+      100% { transform: translate3d(2%, .8%, 0) rotate(1.2deg) scaleX(-1) scale(1.08); }
+    }
+    .hero-inner {
+      width: 100%;
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 40px 68px 52px;
+    }
+    .hero h1 {
+      max-width: 760px;
+      margin: 0;
+      color: #fff;
+      font-size: clamp(48px, 5vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      font-weight: 850;
+    }
+    .hero-title-line { display: block; }
+    .hero-phrase {
+      display: block;
+      min-height: 1.1em;
+      color: var(--green-500);
+      transition: opacity .17s ease, transform .17s ease;
+    }
+    .hero-phrase.is-changing { opacity: 0; transform: translateY(-10px); }
+
+    .statement {
+      min-height: 154px;
+      padding: 28px 24px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: var(--warm-white);
+    }
+    .statement h2 {
+      margin: 0;
+      font-size: clamp(29px, 3.1vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -.035em;
+      font-weight: 850;
+    }
+    .accent { color: #27883d; }
+
+    .experience { padding: 36px 68px 54px; background: var(--green-900); }
+    .experience-grid {
+      width: 100%;
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 30px;
+    }
+    .stage { min-width: 0; }
+    .stage-heading {
+      min-height: 42px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+    }
+    .stage-number {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 32px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: var(--green-950);
+      background: var(--green-500);
+      font-weight: 900;
+    }
+    .stage-heading h3 { margin: 0; font-size: 20px; font-weight: 820; }
+    .stage-rule { height: 1px; flex: 1; margin-left: 8px; background: #78a889; opacity: .7; }
+    .preview-card {
+      min-height: 270px;
+      padding: 20px 22px 18px;
+      color: var(--ink);
+      background: var(--warm-white);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: 0 12px 22px rgba(0, 26, 20, .16);
+    }
+    .card-topline {
+      min-height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .card-kicker { font-size: 17px; font-weight: 820; }
+    .card-meta { color: var(--muted); font-size: 12px; font-weight: 720; }
+    .progress-track {
+      height: 4px;
+      margin: 12px 0 24px;
+      overflow: hidden;
+      background: #dce2dc;
+      border-radius: 999px;
+    }
+    .progress-track span { display: block; width: 29%; height: 100%; background: #2aa348; }
+    .card-question {
+      max-width: 320px;
+      margin: 0 0 8px;
+      font-size: 21px;
+      line-height: 1.28;
+      font-weight: 840;
+    }
+    .card-supporting { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.45; }
+    .choices { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+    .choice {
+      min-height: 62px;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid #d2d9d3;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 780;
+    }
+    .choice.selected { background: var(--soft-green); border-color: #5a8a68; }
+    .choice-mark { color: var(--green-800); font-size: 12px; }
+    .plan-body { margin: 27px 0 26px; display: flex; align-items: center; gap: 18px; }
+    .plan-disc {
+      width: 90px;
+      height: 90px;
+      flex: 0 0 90px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      color: var(--green-800);
+      background: #dce9de;
+      padding: 0 12px;
+      text-align: center;
+      font-size: 21px;
+      line-height: 1.05;
+      font-weight: 850;
+    }
+    .exercise-name { margin: 0 0 6px; font-size: 20px; font-weight: 840; }
+    .activity-button {
+      width: 100%;
+      min-height: 52px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--green-800);
+      border-radius: 9px;
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .filter-pill {
+      padding: 6px 10px;
+      color: var(--green-800);
+      background: #e7eee7;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .progress-message { margin: 10px 0 4px; font-size: 14px; font-weight: 740; }
+    .chart { width: 100%; height: 130px; margin-top: 4px; display: block; }
+
+    dialog {
+      width: min(540px, calc(100% - 32px));
+      padding: 0;
+      color: var(--ink);
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 24px 70px rgba(0, 28, 20, .28);
+    }
+    dialog::backdrop { background: rgba(4, 31, 22, .62); }
+    .dialog-content { padding: 34px; }
+    .dialog-content h2 { margin: 0 42px 12px 0; font-size: 30px; line-height: 1.2; }
+    .dialog-content p { margin: 0 0 24px; color: var(--muted); font-size: 17px; line-height: 1.65; }
+    .dialog-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      min-width: 68px;
+      height: 44px;
+      padding: 0 14px;
+      color: var(--ink);
+      background: #f1f4f0;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .dialog-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .dialog-secondary {
+      min-height: 52px;
+      padding: 0 18px;
+      color: var(--green-800);
+      background: #edf3ee;
+      border-radius: 9px;
+      font-weight: 780;
+      cursor: pointer;
+    }
+
+    @media (max-width: 979px) {
+      .site-header { padding: 0 24px; }
+      .brand img { width: 46px; height: 46px; }
+      .brand-name { font-size: 30px; }
+      .desktop-nav { display: none; }
+      .nav-links { gap: 8px; }
+      .nav-link { font-size: 16px; }
+      .header-cta { min-width: 112px; min-height: 50px; padding: 0 16px; font-size: 16px; }
+      .hero { min-height: 390px; }
+      .hero-inner { padding: 38px 24px 48px; }
+      .hero h1 { max-width: 650px; font-size: clamp(44px, 10vw, 58px); }
+      .pulse-layer { inset: -10% -36%; width: 172%; height: 120%; opacity: .7; }
+      .statement { min-height: 128px; }
+      .experience { padding: 30px 20px 40px; }
+      .experience-grid { max-width: 680px; grid-template-columns: 1fr; }
+      .stage-rule { display: none; }
+      .preview-card { min-height: 0; }
+    }
+
+    @media (max-width: 560px) {
+      .site-header { min-height: 86px; padding: 0 18px; }
+      .brand { gap: 10px; }
+      .brand img { width: 44px; height: 44px; }
+      .brand-name { font-size: 28px; }
+      .nav-link { min-height: 48px; padding: 0 3px; font-size: 15px; }
+      .header-cta { min-width: 94px; min-height: 48px; padding: 0 12px; font-size: 15px; }
+      .hero h1 { font-size: 45px; line-height: 1.18; }
+      .statement h2 { font-size: 29px; }
+      .choices { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .pulse-layer-a { transform: translate3d(-1%, 0, 0) scale(1.05); }
+      .pulse-layer-b { transform: translate3d(1%, 0, 0) scaleX(-1) scale(1.08); }
+    }
+  </style>
 </head>
+
 <body>
-  <p>Redirecting to <a href="https://rehyn.onrender.com/">rehyn.onrender.com</a>.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="https://rehyn.com/" aria-label="Rehyn home">
+        <img src="logo.svg" alt="" />
+        <span class="brand-name">Rehyn</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a class="nav-link desktop-nav" href="#how-it-works">How it works</a>
+        <button class="nav-button desktop-nav" type="button" data-open-dialog="families-dialog">For families</button>
+        <a class="nav-link" href="https://rehyn.onrender.com/" data-app-link>Sign in</a>
+        <button class="header-cta" type="button" data-open-dialog="trial-dialog">Start free</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <img class="pulse-layer pulse-layer-a" src="assets/landing-pulse-network.png" alt="" aria-hidden="true" />
+      <img class="pulse-layer pulse-layer-b" src="assets/landing-pulse-network.png" alt="" aria-hidden="true" />
+      <div class="hero-inner">
+        <h1 id="hero-title">
+          <span class="hero-title-line">Recovery at home that</span>
+          <span class="hero-phrase" id="hero-phrase">feels clearer.</span>
+        </h1>
+      </div>
+    </section>
+
+    <section class="statement" aria-labelledby="statement-title">
+      <h2 id="statement-title">From uncertainty to <span class="accent">one clear next step.</span></h2>
+    </section>
+
+    <section class="experience" id="how-it-works" aria-label="How Rehyn works">
+      <div class="experience-grid">
+        <article class="stage">
+          <div class="stage-heading">
+            <span class="stage-number">1</span><h3>Check movement</h3><span class="stage-rule" aria-hidden="true"></span>
+          </div>
+          <div class="preview-card">
+            <div class="card-topline"><span class="card-kicker">Quick check</span><span class="card-meta">5 of 19</span></div>
+            <div class="progress-track" aria-label="Assessment progress: 5 of 19"><span></span></div>
+            <p class="card-question">Which areas of your body were affected?</p>
+            <p class="card-supporting">Select every area that applies.</p>
+            <div class="choices" aria-hidden="true">
+              <div class="choice selected"><span>Upper limb</span><span class="choice-mark">Selected</span></div>
+              <div class="choice"><span>Lower limb</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <div class="stage-heading">
+            <span class="stage-number">2</span><h3>Follow your plan</h3><span class="stage-rule" aria-hidden="true"></span>
+          </div>
+          <div class="preview-card">
+            <div class="card-topline"><span class="card-kicker">Today’s plan</span><span class="card-meta">3 activities</span></div>
+            <div class="plan-body">
+              <div class="plan-disc" aria-hidden="true">10<br />reps</div>
+              <div><p class="exercise-name">Seated arm lift</p><p class="card-supporting">2 sets</p></div>
+            </div>
+            <div class="activity-button" aria-hidden="true">Start activity</div>
+          </div>
+        </article>
+
+        <article class="stage">
+          <div class="stage-heading"><span class="stage-number">3</span><h3>See progress</h3></div>
+          <div class="preview-card">
+            <div class="card-topline"><span class="card-kicker">Your progress</span><span class="filter-pill">Reaching</span></div>
+            <p class="progress-message">Your reaching is improving</p>
+            <canvas class="chart" id="progress-chart" role="img" aria-label="Reaching score improving from 64 to 98 between June 12 and August 28"></canvas>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="families-dialog" aria-labelledby="families-title">
+    <div class="dialog-content">
+      <button class="dialog-close" type="button" data-close-dialog>Close</button>
+      <h2 id="families-title">Support for families</h2>
+      <p>A family member or carer can help with setup, safe positioning and recording while the patient remains in control of their own profile and plan.</p>
+    </div>
+  </dialog>
+
+  <dialog id="trial-dialog" aria-labelledby="trial-title">
+    <div class="dialog-content">
+      <button class="dialog-close" type="button" data-close-dialog>Close</button>
+      <h2 id="trial-title">Start with Rehyn</h2>
+      <p>Rehyn is currently available through the trial app. When you are ready to continue, sign in to the secure Rehyn app.</p>
+      <div class="dialog-actions">
+        <a class="header-cta" href="https://rehyn.onrender.com/" data-app-link>Sign in to Rehyn</a>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    const phrases = ["feels clearer.", "moves with you.", "shows small wins.", "gives you direction."];
+    const phraseElement = document.getElementById("hero-phrase");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let phraseIndex = 0;
+    let phraseTimer = null;
+
+    function stopPhraseRotation() {
+      if (phraseTimer) window.clearInterval(phraseTimer);
+      phraseTimer = null;
+      phraseIndex = 0;
+      phraseElement.textContent = phrases[0];
+      phraseElement.classList.remove("is-changing");
+    }
+
+    function startPhraseRotation() {
+      stopPhraseRotation();
+      if (reducedMotion.matches) return;
+      phraseTimer = window.setInterval(() => {
+        phraseElement.classList.add("is-changing");
+        window.setTimeout(() => {
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          phraseElement.textContent = phrases[phraseIndex];
+          phraseElement.classList.remove("is-changing");
+        }, 190);
+      }, 2600);
+    }
+
+    startPhraseRotation();
+    reducedMotion.addEventListener?.("change", startPhraseRotation);
+
+    document.querySelectorAll("[data-open-dialog]").forEach((button) => {
+      button.addEventListener("click", () => document.getElementById(button.dataset.openDialog)?.showModal());
+    });
+    document.querySelectorAll("[data-close-dialog]").forEach((button) => {
+      button.addEventListener("click", () => button.closest("dialog")?.close());
+    });
+    document.querySelectorAll("dialog").forEach((dialog) => {
+      dialog.addEventListener("click", (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+    });
+
+    function drawProgressChart() {
+      const canvas = document.getElementById("progress-chart");
+      const rect = canvas.getBoundingClientRect();
+      const ratio = Math.max(1, window.devicePixelRatio || 1);
+      canvas.width = Math.round(rect.width * ratio);
+      canvas.height = Math.round(rect.height * ratio);
+      const context = canvas.getContext("2d");
+      context.scale(ratio, ratio);
+
+      const width = rect.width;
+      const height = rect.height;
+      const left = 36;
+      const right = width - 12;
+      const top = 17;
+      const bottom = height - 24;
+      const values = [64, 72, 80, 86, 78, 88, 98];
+      const points = values.map((value, index) => ({
+        x: left + (index / (values.length - 1)) * (right - left),
+        y: bottom - ((value - 60) / 40) * (bottom - top),
+      }));
+
+      context.strokeStyle = "#d9ded8";
+      context.lineWidth = 1;
+      context.setLineDash([4, 5]);
+      context.beginPath();
+      context.moveTo(left, top);
+      context.lineTo(right, top);
+      context.stroke();
+      context.setLineDash([]);
+
+      context.strokeStyle = "#5a946b";
+      context.lineWidth = 3;
+      context.lineJoin = "round";
+      context.lineCap = "round";
+      context.beginPath();
+      points.forEach((point, index) => index ? context.lineTo(point.x, point.y) : context.moveTo(point.x, point.y));
+      context.stroke();
+
+      points.forEach((point, index) => {
+        context.beginPath();
+        context.arc(point.x, point.y, index === points.length - 1 ? 7 : 4, 0, Math.PI * 2);
+        context.fillStyle = index === points.length - 1 ? "#07563a" : "#397653";
+        context.fill();
+        context.lineWidth = 2;
+        context.strokeStyle = "#fff";
+        context.stroke();
+      });
+
+      context.fillStyle = "#50605a";
+      context.font = "11px system-ui";
+      context.fillText("Jun 12", left, height - 5);
+      context.textAlign = "right";
+      context.fillText("Aug 28", right, height - 5);
+      context.textAlign = "start";
+    }
+
+    drawProgressChart();
+    window.addEventListener("resize", drawProgressChart);
+  </script>
 </body>
 </html>

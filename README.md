@@ -1,57 +1,23 @@
-# Rehyn — Warm landing page ("Dawn of Hope")
+# Rehyn public landing page
 
-A redesign of the Rehyn landing page, re-targeted from clinicians to **patients and
-families** recovering from a stroke. Warm, hopeful, and emotionally reassuring — while
-keeping a quiet entry point for clinicians.
+This repository powers the public website at [rehyn.com](https://rehyn.com/).
 
-The page is a single self-contained `index.html` (Tailwind + Google Fonts via CDN, no
-build step). Open it directly in a browser, or deploy it as a static site.
+The landing page introduces Rehyn's at-home stroke-recovery experience through a concise, accessible overview of its movement check, rehabilitation plan and progress tracking. The hero uses Rehyn's deep-green visual language, rotating benefit statements and a motion pattern that alternates between a gentle drift and a brief orbit.
 
-## Design direction
-- **Mood:** Dawn of Hope — warm ivory/peach base, hopeful teal, coral warmth, soft "breathing" dawn gradient.
-- **Voice:** plain, dignified, encouraging. Speaks to feelings (uncertainty, motivation, hope), not clinical metrics.
-- **Type:** Fraunces (warm serif headlines) + Plus Jakarta Sans (readable body), large 18px base for accessibility.
-- **Motion:** gentle scroll-in fades; respects `prefers-reduced-motion`.
+## App handoff
 
-## Preview locally
-Just open `index.html` in any browser. (Or run a tiny server: `python3 -m http.server` then visit `http://localhost:8000`.)
+Public visitors remain on `rehyn.com`. Only explicit sign-in actions link to the secure Rehyn application at [rehyn.onrender.com](https://rehyn.onrender.com/).
 
-## Deploy (GitHub Pages)
-1. Push this folder to a new GitHub repo.
-2. Repo **Settings → Pages → Source: Deploy from a branch**, branch `main`, folder `/ (root)`.
-3. Your site goes live at `https://<username>.github.io/<repo>/`.
+## Local preview
 
-## Photos to source (replace the placeholders)
-Every dashed `[ photo ]` block is a placeholder. Replace each with a real, warm photo
-(faces visible, natural light, genuine emotion). Suggested shots:
+Serve the repository root with any static HTTP server, for example:
 
-| Placeholder | Photo to source |
-|---|---|
-| **Hero** | Older stroke survivor walking, a family member's hand on their arm, soft morning light, hopeful. |
-| **How it works — Step 1** | A short movement being recorded on a phone in a bright, homely living room. |
-| **How it works — Step 2** | A simple, friendly progress chart on a tablet, held in warm hands. |
-| **How it works — Step 3** | Family and therapist looking over a personalised plan together, smiling. |
-| **Story** | Candid, close multigenerational family moment at home — patient and carer together. |
+```powershell
+python -m http.server 4174
+```
 
-Free, license-clear sources: Unsplash, Pexels, or commissioned photography. Avoid cold
-stock "doctor + clipboard" imagery — choose home, family, and touch.
+Then open `http://localhost:4174/`.
 
-To swap a placeholder, replace the `<div class="photo-ph">…</div>` with:
-`<img src="assets/your-photo.jpg" alt="describe the scene" class="rounded-3xl w-full h-full object-cover" />`
+## Deployment
 
-## Notes
-- The "For clinicians" strip and the family testimonial are intentionally marked as illustrative — replace with real quotes/consent before publishing.
-- Buttons currently link to `#` / the in-page sections; wire them to your real app routes (`/login`, demo form, etc.) when integrating.
-
-## Photos included (live)
-The page now ships with free, commercial-use photos hotlinked from Pexels
-([Pexels License](https://www.pexels.com/license/) — free, no attribution required; credited here as good practice):
-
-- Hero — "Multi-generational family walking" by Gustavo Fring (Pexels #4173081)
-- Step 1 — "Young woman holding a senior's hand" by ilayda0700 (Pexels #36706838)
-- Step 2 — "Walking toward sunset" by Gustavo Fring (Pexels #4173158)
-- Step 3 — "Caregiver and senior in a cozy kitchen" by Jsme MILA (Pexels #29372709)
-- Story — "Elderly woman and caregiver on the couch" by Jsme MILA (Pexels #29373893)
-
-To use your own photos instead, replace the `src` on the relevant `<img>` in `index.html`
-(or drop files into an `assets/` folder and point to them).
+GitHub Pages serves the `main` branch. The custom domain is configured by `CNAME` as `rehyn.com`.
