@@ -1,2 +1,4 @@
 qa-*.jpg
 qa-comparison.html
+__pycache__/
+*.pyc
