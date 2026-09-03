@@ -6,7 +6,7 @@ The landing page introduces Rehyn's at-home stroke-recovery experience through a
 
 ## App handoff
 
-Public visitors remain on `rehyn.com`. Only explicit sign-in actions link to the secure Rehyn application at [rehyn.onrender.com](https://rehyn.onrender.com/).
+Public visitors remain on `rehyn.com`. Only explicit sign-in actions open the secure name, email and trial-code form in the Rehyn application at [rehyn.onrender.com](https://rehyn.onrender.com/).
 
 ## Local preview
 
