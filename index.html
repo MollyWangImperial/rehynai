@@ -209,6 +209,17 @@
     }
     .accent { color: #27883d; }
 
+    .journey-section {
+      width: 100%;
+      overflow: hidden;
+      background: #fbfdfb;
+    }
+    .journey-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     .experience { padding: 36px 68px 54px; background: var(--green-900); }
     .experience-grid {
       width: 100%;
@@ -535,6 +546,16 @@
       .hero h1 { font-size: 45px; line-height: 1.18; }
       .statement h2 { font-size: 29px; }
       .choices { grid-template-columns: 1fr; }
+      .journey-section {
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+      }
+      .journey-image {
+        width: 920px;
+        max-width: none;
+      }
       .auth-dialog-content { padding: 28px 22px 24px; }
       .auth-dialog-header { margin-bottom: 24px; }
       .auth-brand img { width: 50px; height: 50px; }
@@ -583,51 +604,15 @@
       </div>
     </section>
 
-    <section class="statement" aria-labelledby="statement-title">
-      <h2 id="statement-title">From uncertainty to <span class="accent">one clear next step.</span></h2>
-    </section>
-
-    <section class="experience" id="how-it-works" aria-label="How Rehyn works">
-      <div class="experience-grid">
-        <article class="stage">
-          <div class="stage-heading">
-            <span class="stage-number">1</span><h3>Check movement</h3><span class="stage-rule" aria-hidden="true"></span>
-          </div>
-          <div class="preview-card">
-            <div class="card-topline"><span class="card-kicker">Quick check</span><span class="card-meta">5 of 19</span></div>
-            <div class="progress-track" aria-label="Assessment progress: 5 of 19"><span></span></div>
-            <p class="card-question">Which areas of your body were affected?</p>
-            <p class="card-supporting">Select every area that applies.</p>
-            <div class="choices" aria-hidden="true">
-              <div class="choice selected"><span>Upper limb</span><span class="choice-mark">Selected</span></div>
-              <div class="choice"><span>Lower limb</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="stage">
-          <div class="stage-heading">
-            <span class="stage-number">2</span><h3>Follow your plan</h3><span class="stage-rule" aria-hidden="true"></span>
-          </div>
-          <div class="preview-card">
-            <div class="card-topline"><span class="card-kicker">Today’s plan</span><span class="card-meta">3 activities</span></div>
-            <div class="plan-body">
-              <div class="plan-disc" aria-hidden="true">10<br />reps</div>
-              <div><p class="exercise-name">Seated arm lift</p><p class="card-supporting">2 sets</p></div>
-            </div>
-            <div class="activity-button" aria-hidden="true">Start activity</div>
-          </div>
-        </article>
-
-        <article class="stage">
-          <div class="stage-heading"><span class="stage-number">3</span><h3>See progress</h3></div>
-          <div class="preview-card">
-            <div class="card-topline"><span class="card-kicker">Your progress</span><span class="filter-pill">Reaching</span></div>
-            <p class="progress-message">Your reaching is improving</p>
-            <canvas class="chart" id="progress-chart" role="img" aria-label="Reaching score improving from 64 to 98 between June 12 and August 28"></canvas>
-          </div>
-        </article>
-      </div>
+    <section class="journey-section" id="how-it-works" aria-label="How Rehyn works: Capture, Personalize, Coach, Progress">
+      <img
+        class="journey-image"
+        src="assets/how-rehyn-works-four-step.png"
+        alt="One connected recovery journey. Step 1: Capture. A family member records a 10-second walk at home. Step 2: Personalize. Rehyn identifies arm movement, balance, and step control needs. Step 3: Coach. The patient follows a personalised plan using a phone on a tabletop tripod. Step 4: Progress. A clear chart shows steady improvement."
+        width="1937"
+        height="812"
+        loading="eager"
+      />
     </section>
   </main>
 
@@ -776,64 +761,6 @@
 
     if (new URLSearchParams(window.location.search).get("signin") === "1") signInDialog.showModal();
 
-    function drawProgressChart() {
-      const canvas = document.getElementById("progress-chart");
-      const rect = canvas.getBoundingClientRect();
-      const ratio = Math.max(1, window.devicePixelRatio || 1);
-      canvas.width = Math.round(rect.width * ratio);
-      canvas.height = Math.round(rect.height * ratio);
-      const context = canvas.getContext("2d");
-      context.scale(ratio, ratio);
-
-      const width = rect.width;
-      const height = rect.height;
-      const left = 36;
-      const right = width - 12;
-      const top = 17;
-      const bottom = height - 24;
-      const values = [64, 72, 80, 86, 78, 88, 98];
-      const points = values.map((value, index) => ({
-        x: left + (index / (values.length - 1)) * (right - left),
-        y: bottom - ((value - 60) / 40) * (bottom - top),
-      }));
-
-      context.strokeStyle = "#d9ded8";
-      context.lineWidth = 1;
-      context.setLineDash([4, 5]);
-      context.beginPath();
-      context.moveTo(left, top);
-      context.lineTo(right, top);
-      context.stroke();
-      context.setLineDash([]);
-
-      context.strokeStyle = "#5a946b";
-      context.lineWidth = 3;
-      context.lineJoin = "round";
-      context.lineCap = "round";
-      context.beginPath();
-      points.forEach((point, index) => index ? context.lineTo(point.x, point.y) : context.moveTo(point.x, point.y));
-      context.stroke();
-
-      points.forEach((point, index) => {
-        context.beginPath();
-        context.arc(point.x, point.y, index === points.length - 1 ? 7 : 4, 0, Math.PI * 2);
-        context.fillStyle = index === points.length - 1 ? "#07563a" : "#397653";
-        context.fill();
-        context.lineWidth = 2;
-        context.strokeStyle = "#fff";
-        context.stroke();
-      });
-
-      context.fillStyle = "#50605a";
-      context.font = "11px system-ui";
-      context.fillText("Jun 12", left, height - 5);
-      context.textAlign = "right";
-      context.fillText("Aug 28", right, height - 5);
-      context.textAlign = "start";
-    }
-
-    drawProgressChart();
-    window.addEventListener("resize", drawProgressChart);
   </script>
 </body>
 </html>
