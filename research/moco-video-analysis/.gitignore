@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Patient data and generated outputs must remain local.
+*.mp4
+*.mov
+*.avi
+*.mkv
+frames/
+outputs/
+outputs_sample/
+
+# Downloaded upstream OpenSim assets and source trees.
+models/
+third_party/
+
+

@@ -1,0 +1,17 @@
+name: moco-video-analysis
+channels:
+  - opensim-org
+  - conda-forge
+dependencies:
+  - python=3.11
+  - opensim=4.6
+  - numpy
+  - pandas
+  - matplotlib
+  - tabulate
+  - pip
+  - pip:
+      - mediapipe
+      - opencv-python
+
+
