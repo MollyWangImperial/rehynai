@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#fcfcfa">
+  <title>Camera setup | Rehyn</title>
+  <link rel="stylesheet" href="./setup.css">
+</head>
+<body>
+  <main>
+    <header class="topbar">
+      <button id="back" class="icon-button" aria-label="Go back" title="Go back">&#8592;</button>
+      <span id="step-label">Camera setup 1 of 3</span>
+      <span></span>
+    </header>
+    <section id="choose" class="device-page" aria-labelledby="device-title">
+      <h1 id="device-title" tabindex="-1">Which camera are you using today?</h1>
+      <p class="subtitle">Choose the device you will use for this session.</p>
+      <div id="device-options" class="device-options"></div>
+    </section>
+
+    <section id="placement" hidden aria-labelledby="placement-title">
+      <h1 id="placement-title" tabindex="-1">Place your iPhone like this</h1>
+      <p class="subtitle">Use a stable surface and leave space to move.</p>
+      <div class="setup-layout">
+        <figure id="illustration" class="illustration">
+          <img src="./iphone-setup.png" width="1122" height="1402" alt="An upright iPhone on a stable surface faces the patient. The front camera is level with her shoulder. Move far enough away for the upper body to fit in the camera view.">
+        </figure>
+        <div class="setup-actions">
+          <p class="framing-copy">Make sure the camera can see your head, shoulders, arms and hands.</p>
+          <ol class="placement-notes">
+            <li id="device-placement">Stand your iPhone upright in a secure holder. Keep the screen facing you.</li>
+            <li>Place the camera at shoulder height for your seated position. Ask someone to help if needed.</li>
+            <li>For arm and hand tasks, sit in a stable chair. Match the camera to your seated shoulder height.</li>
+          </ol>
+          <button id="open-check" class="primary">Open camera check <span aria-hidden="true">&#8594;</span></button>
+          <button id="play-demo" class="link-button">Play setup demonstration</button>
+          <button id="change-device" class="link-button secondary-link">Use a different device</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="test" hidden aria-labelledby="test-title">
+      <h1 id="test-title" tabindex="-1">Camera test in progress</h1>
+      <p class="subtitle">Keep your head, shoulders, arms and hands in view.</p>
+      <div class="test-layout">
+        <div id="preview" class="preview">
+          <video id="video" autoplay muted playsinline aria-label="Your live camera preview"></video>
+          <canvas id="overlay" aria-hidden="true"></canvas>
+          <span id="live" class="live-badge" hidden><span></span> LIVE</span>
+          <div id="camera-status" class="camera-status" role="status"><span class="spinner" aria-hidden="true"></span><span id="status-text">Opening camera...</span></div>
+          <div id="preview-empty" class="preview-empty">Your camera preview will appear here.</div>
+        </div>
+        <div class="test-actions">
+          <div id="error" role="alert" class="error" hidden></div>
+          <label id="camera-source-label" class="camera-source" hidden>Camera <select id="camera-source" aria-label="Camera source"></select></label>
+          <div class="checklist">
+            <div class="check-row"><span id="steady-icon" class="spinner" aria-hidden="true"></span><span id="steady-text" role="status">Checking view steadiness</span></div>
+            <div class="check-row"><span id="position-icon" class="spinner" aria-hidden="true"></span><span id="position-text" role="status">Checking head and shoulders</span></div>
+            <div class="check-row"><span id="frame-icon" class="spinner" aria-hidden="true"></span><span id="frame-text" role="status">Checking arms and hands</span></div>
+          </div>
+          <p class="check-note">Rehyn checks these automatically. No boxes to tick.</p>
+          <p id="frame-hint" class="frame-hint" role="status">Keep both arms relaxed and visible.</p>
+          <button id="continue" class="primary" disabled>Testing camera...</button>
+          <button id="retry" class="primary" hidden>Try camera again</button>
+          <button id="stop" class="link-button">Stop test</button>
+          <p class="privacy">This setup check stays on your device. It is not recorded.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="no-camera" class="device-page" hidden>
+      <h1 tabindex="-1">No camera available?</h1>
+      <p class="subtitle">Your survey answers and saved plan are still available. Camera-guided tasks need a working camera.</p>
+      <button id="no-camera-back" class="primary">Back to Rehyn</button>
+      <button id="choose-again" class="link-button">Choose a camera</button>
+    </section>
+  </main>
+  <dialog id="demo" aria-labelledby="demo-title">
+    <div class="demo-header"><h2 id="demo-title">iPhone setup demonstration</h2><button id="close-demo" class="icon-button" aria-label="Close demonstration">&#215;</button></div>
+    <div class="demo-image"><img src="./iphone-setup.png" alt="Phone placement demonstration" width="1122" height="1402"></div>
+    <p id="demo-caption" aria-live="polite"></p>
+    <div class="demo-controls"><button id="demo-toggle">Pause</button><span id="demo-count"></span><button id="demo-next">Next step &#8594;</button></div>
+  </dialog>
+  <script type="module" src="./setup.mjs"></script>
+</body>
+</html>

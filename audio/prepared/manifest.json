@@ -1,0 +1,116 @@
+{
+  "version": 1,
+  "exercise_id": "ex_grasp",
+  "model": "tts-1",
+  "voice": "nova",
+  "assets": [
+    {
+      "key": "904247430a93a3ff44809628781c892bd50c0527b2f3bcc69fc1977270ae7e9f",
+      "url": "/audio/prepared/904247430a93a3ff44809628781c892bd50c0527b2f3bcc69fc1977270ae7e9f.mp3",
+      "bytes": 47232,
+      "text": "Close your fingers around the cup to grasp it."
+    },
+    {
+      "key": "bc1b3f3c224c5c27081d444ffba3a73f153ef984e9c6f7f96347ab2ea9c4d115",
+      "url": "/audio/prepared/bc1b3f3c224c5c27081d444ffba3a73f153ef984e9c6f7f96347ab2ea9c4d115.mp3",
+      "bytes": 69504,
+      "text": "Magnificent work. You have finished this exercise. I'm so proud of you."
+    },
+    {
+      "key": "bc23ad233c7334af21ef75051f8003aa4efe20bd1e03f9536b5909a9e24dc852",
+      "url": "/audio/prepared/bc23ad233c7334af21ef75051f8003aa4efe20bd1e03f9536b5909a9e24dc852.mp3",
+      "bytes": 51840,
+      "text": "Now bring your empty hand back to your lap. Nicely done."
+    },
+    {
+      "key": "87dc90e167c1f3dc9cfcb4991c556f723ed011acf61e407be2b043512567e240",
+      "url": "/audio/prepared/87dc90e167c1f3dc9cfcb4991c556f723ed011acf61e407be2b043512567e240.mp3",
+      "bytes": 43776,
+      "text": "Now open your hand wide, ready to take the cup."
+    },
+    {
+      "key": "5191cf60446649372b5c62303348c339e2f34ddfc326982d454ebde2ab18a8ff",
+      "url": "/audio/prepared/5191cf60446649372b5c62303348c339e2f34ddfc326982d454ebde2ab18a8ff.mp3",
+      "bytes": 103680,
+      "text": "One quick question. Did a carer or family member help you move during this exercise? Please tap yes or no."
+    },
+    {
+      "key": "8dd15a3a18013291aff4b74dac89ba150d348780e1c1eb94eabefc487e1a875c",
+      "url": "/audio/prepared/8dd15a3a18013291aff4b74dac89ba150d348780e1c1eb94eabefc487e1a875c.mp3",
+      "bytes": 36096,
+      "text": "Open your fingers to set the cup down."
+    },
+    {
+      "key": "8afc906b29a4315c9b58951be31c84c0abd1aacf57c9a37abfe2291ecd39365c",
+      "url": "/audio/prepared/8afc906b29a4315c9b58951be31c84c0abd1aacf57c9a37abfe2291ecd39365c.mp3",
+      "bytes": 54912,
+      "text": "Reach toward the cup on your screen with your affected hand."
+    },
+    {
+      "key": "d4e57c46d9ba25a395c94a53222b4f263d48139ad30fbb0282bb91e67dd423c5",
+      "url": "/audio/prepared/d4e57c46d9ba25a395c94a53222b4f263d48139ad30fbb0282bb91e67dd423c5.mp3",
+      "bytes": 183168,
+      "text": "Sit square to the camera with both shoulders, hips, elbows, and wrists visible. The cup you will move is shown on the screen - no real object is needed. Rest your hands and hold still."
+    },
+    {
+      "key": "3421b85a6f88676f128f0d74b2864fbaea398d57fbd544b1ccd3622b843f374e",
+      "url": "/audio/prepared/3421b85a6f88676f128f0d74b2864fbaea398d57fbd544b1ccd3622b843f374e.mp3",
+      "bytes": 115584,
+      "text": "Thank you for telling me. Working together with your carer still counts, and this session is recorded as helper supported."
+    },
+    {
+      "key": "6bbf84c7934386a2ecf99938a01d568540e8dbaebdebf42aadd36357a62e2e77",
+      "url": "/audio/prepared/6bbf84c7934386a2ecf99938a01d568540e8dbaebdebf42aadd36357a62e2e77.mp3",
+      "bytes": 66816,
+      "text": "The cup is in your hand. Carry it slowly across to the other side."
+    },
+    {
+      "key": "5529677d2c9c0feb2086d934884d736e4b51bdcdfd3546625b07bfaac0a510bd",
+      "url": "/audio/prepared/5529677d2c9c0feb2086d934884d736e4b51bdcdfd3546625b07bfaac0a510bd.mp3",
+      "bytes": 487296,
+      "text": "We will practise reaching for a cup, opening your hand, grasping it, and carrying it across. The cup is drawn on your screen, so you do not need a real object. Reach to the cup with your affected hand, open your hand wide, close your fingers around the cup, carry it across, open your hand to set it down, then return to your lap. Today's level is difficult. Use a slightly smaller light object over a longer path with a controlled release. Transport the object in the opposite table direction."
+    },
+    {
+      "key": "331397609775523bc4fd64ff0efafa37e2200357caf5168de282974cdd9853b1",
+      "url": "/audio/prepared/331397609775523bc4fd64ff0efafa37e2200357caf5168de282974cdd9853b1.mp3",
+      "bytes": 475392,
+      "text": "We will practise reaching for a cup, opening your hand, grasping it, and carrying it across. The cup is drawn on your screen, so you do not need a real object. Reach to the cup with your affected hand, open your hand wide, close your fingers around the cup, carry it across, open your hand to set it down, then return to your lap. Today's level is difficult. Use a slightly smaller light object over a longer path with a controlled release. Use the familiar movement pattern today."
+    },
+    {
+      "key": "5b5fddd064de583ae1e21403bf85d712f09334be7709c9ce84fd07bf00fec984",
+      "url": "/audio/prepared/5b5fddd064de583ae1e21403bf85d712f09334be7709c9ce84fd07bf00fec984.mp3",
+      "bytes": 443520,
+      "text": "We will practise reaching for a cup, opening your hand, grasping it, and carrying it across. The cup is drawn on your screen, so you do not need a real object. Reach to the cup with your affected hand, open your hand wide, close your fingers around the cup, carry it across, open your hand to set it down, then return to your lap. Today's level is easy. Use a large, very light object over a short distance. Transport the object in the opposite table direction."
+    },
+    {
+      "key": "1a30aca4f5c0b15637ec0d68fd839573e87344c8e32dc5731f0f25a1c3eb1f6c",
+      "url": "/audio/prepared/1a30aca4f5c0b15637ec0d68fd839573e87344c8e32dc5731f0f25a1c3eb1f6c.mp3",
+      "bytes": 430848,
+      "text": "We will practise reaching for a cup, opening your hand, grasping it, and carrying it across. The cup is drawn on your screen, so you do not need a real object. Reach to the cup with your affected hand, open your hand wide, close your fingers around the cup, carry it across, open your hand to set it down, then return to your lap. Today's level is easy. Use a large, very light object over a short distance. Use the familiar movement pattern today."
+    },
+    {
+      "key": "dc06db0532131c3f7f80b970ff10bef336a72aa4a4d38629effae9258fbe62e7",
+      "url": "/audio/prepared/dc06db0532131c3f7f80b970ff10bef336a72aa4a4d38629effae9258fbe62e7.mp3",
+      "bytes": 450816,
+      "text": "We will practise reaching for a cup, opening your hand, grasping it, and carrying it across. The cup is drawn on your screen, so you do not need a real object. Reach to the cup with your affected hand, open your hand wide, close your fingers around the cup, carry it across, open your hand to set it down, then return to your lap. Today's level is medium. Use a soft cup across the usual table distance. Transport the object in the opposite table direction."
+    },
+    {
+      "key": "6fa3539c7e21ae195dbceba15119eee9281de08e5462518a401d889b281f8602",
+      "url": "/audio/prepared/6fa3539c7e21ae195dbceba15119eee9281de08e5462518a401d889b281f8602.mp3",
+      "bytes": 429312,
+      "text": "We will practise reaching for a cup, opening your hand, grasping it, and carrying it across. The cup is drawn on your screen, so you do not need a real object. Reach to the cup with your affected hand, open your hand wide, close your fingers around the cup, carry it across, open your hand to set it down, then return to your lap. Today's level is medium. Use a soft cup across the usual table distance. Use the familiar movement pattern today."
+    },
+    {
+      "key": "57bb4568f809d9ed473b8dd696e52357d09cb20a225f1a747afc85d7b056c2d6",
+      "url": "/audio/prepared/57bb4568f809d9ed473b8dd696e52357d09cb20a225f1a747afc85d7b056c2d6.mp3",
+      "bytes": 19200,
+      "text": "Wonderful. Here we go."
+    },
+    {
+      "key": "31bbdc7b8ddfcbab57ee29d1bbf37737c48e137759acdb63251685218bd45432",
+      "url": "/audio/prepared/31bbdc7b8ddfcbab57ee29d1bbf37737c48e137759acdb63251685218bd45432.mp3",
+      "bytes": 124800,
+      "text": "You are sitting a little differently for this exercise, so I will learn your starting position again. Please hold still for a moment."
+    }
+  ]
+}
