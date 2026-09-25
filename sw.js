@@ -1,5 +1,5 @@
 // Replaced with the exported JavaScript bundle hash by scripts/inject-pwa.js.
-const CACHE_NAME = "rehyn-shell-599db4bffa4a946b4e5124a3bd22c39e";
+const CACHE_NAME = "rehyn-shell-80a343812f86eaacc761543dcf913a5e";
 const SHELL_FILES = [
   "/",
   "/manifest.json",
